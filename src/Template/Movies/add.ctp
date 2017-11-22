@@ -1,4 +1,4 @@
-<?php
+th<?php
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Movie $movie
@@ -20,6 +20,7 @@
             echo $this->Form->control('name');
             echo $this->Form->control('description');
             echo $this->Form->control('duration');
+            echo $this->Form->control('releaseDate');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
