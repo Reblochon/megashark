@@ -21,11 +21,11 @@
             <td><?= $this->Number->format($showtime->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Movie Id') ?></th>
+            <th scope="row"><?= __('Movie') ?></th>
             <td><?= $this->Number->format($showtime->movie_id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Room Id') ?></th>
+            <th scope="row"><?= __('Room') ?></th>
             <td><?= $this->Number->format($showtime->room_id) ?></td>
         </tr>
         <tr>
