@@ -34,6 +34,15 @@ class RoomsController extends AppController
      */
     public function view($id = null)
     {
+        $query= $this->Showtimes->Rooms->Movies
+        ->find()
+        ->select(['Rooms.id, Rooms.name, Movies.name, Showtimes.start, Showtimes.end'])
+        ->where(['Rooms.id'=='Showtimes.Rooms_id' ])
+        ->where(['Showtimes.movie_id'=='Movies.id' ]);
+        
+        $showtimesThisweek=[
+        1=>[show1,show2],
+        ];
         $room = $this->Rooms->get($id, [
             'contain' => []
         ]);
