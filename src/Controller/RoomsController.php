@@ -34,19 +34,18 @@ class RoomsController extends AppController
      */
     public function view($id = null)
     {
-        $query= $this->Showtimes->Rooms->Movies
-        ->find()
-        ->select(['Rooms.id, Rooms.name, Movies.name, Showtimes.start, Showtimes.end'])
-        ->where(['Rooms.id'=='Showtimes.Rooms_id' ])
-        ->where(['Showtimes.movie_id'=='Movies.id' ]);
         
-        $showtimesThisweek=[
-        1=>[show1,show2],
-        ];
-        $room = $this->Rooms->get($id, [
-            'contain' => []
-        ]);
-
+        //$showtimesThisweek=[
+        //1=>[show1,show2],
+        //];
+        $room =$this->Rooms->get($id, [ 'contain'=> []]);
+        
+        $showtime= $this->Rooms->Showtimes
+        ->find()
+        ->select(['Nomsalle'=>'Rooms.name', 'Nomfilm'=>'Movies.name', 'Debut'=>'Showtimes.start', 'Fin'=>'Showtimes.end'])
+        ->where(['Rooms_id'=>$id,'Showtimes.movie_id'=='Movies.id', 'Rooms.id'=='Rooms_id' ]);
+        $this->set('showtime', $showtime);
+        $this->set('_serialize', ['showtime']);
         $this->set('room', $room);
         $this->set('_serialize', ['room']);
     }

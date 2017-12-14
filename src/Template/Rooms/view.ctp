@@ -37,4 +37,24 @@
             <td><?= h($room->modified) ?></td>
         </tr>
     </table>
+    <?php
+    foreach($showtime as $u)
+    {
+    echo "<h3><?= h($u->Nomsalle) ?></h3>
+    <table >
+        <tr>
+            <th ><?= __('Nom du film') ?></th>
+            <td><?= h($u->Nomfilm) ?></td>
+        </tr>
+        <tr>
+            <th ><?= __('Debut') ?></th>
+            <td><?= h($u->Debut) ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Fin') ?></th>
+            <td><?= h($u->Fin) ?></td>
+        </tr>
+    </table>";
+    }
+    ?>
 </div>
